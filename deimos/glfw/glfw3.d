@@ -329,50 +329,50 @@ enum GLFW_GAMMA_RAMP_SIZE     = 256;
  * Typedefs
  *************************************************************************/
 
-/* OpenGL function pointer type */
-alias void function() GLFWglproc;
+extern (C) {
+    /* OpenGL function pointer type */
+    alias void function() GLFWglproc;
 
-/* Window handle type */
-alias void* GLFWwindow;
+    /* Window handle type */
+    alias void* GLFWwindow;
 
-/* Function pointer types */
-alias void function(int,const(char)*) GLFWerrorfun;
-alias void function(GLFWwindow,int,int) GLFWwindowsizefun;
-alias int  function(GLFWwindow) GLFWwindowclosefun;
-alias void function(GLFWwindow) GLFWwindowrefreshfun;
-alias void function(GLFWwindow,int) GLFWwindowfocusfun;
-alias void function(GLFWwindow,int) GLFWwindowiconifyfun;
-alias void function(GLFWwindow,int,int) GLFWmousebuttonfun;
-alias void function(GLFWwindow,int,int) GLFWcursorposfun;
-alias void function(GLFWwindow,int) GLFWcursorenterfun;
-alias void function(GLFWwindow,double,double) GLFWscrollfun;
-alias void function(GLFWwindow,int,int) GLFWkeyfun;
-alias void function(GLFWwindow,int) GLFWcharfun;
+    /* Function pointer types */
+    alias void function(int,const(char)*) GLFWerrorfun;
+    alias void function(GLFWwindow,int,int) GLFWwindowsizefun;
+    alias int  function(GLFWwindow) GLFWwindowclosefun;
+    alias void function(GLFWwindow) GLFWwindowrefreshfun;
+    alias void function(GLFWwindow,int) GLFWwindowfocusfun;
+    alias void function(GLFWwindow,int) GLFWwindowiconifyfun;
+    alias void function(GLFWwindow,int,int) GLFWmousebuttonfun;
+    alias void function(GLFWwindow,int,int) GLFWcursorposfun;
+    alias void function(GLFWwindow,int) GLFWcursorenterfun;
+    alias void function(GLFWwindow,double,double) GLFWscrollfun;
+    alias void function(GLFWwindow,int,int) GLFWkeyfun;
+    alias void function(GLFWwindow,int) GLFWcharfun;
 
-/* The video mode structure used by glfwGetVideoModes */
-struct GLFWvidmode
-{
-    int width;
-    int height;
-    int redBits;
-    int blueBits;
-    int greenBits;
-}
+    /* The video mode structure used by glfwGetVideoModes */
+    struct GLFWvidmode
+    {
+        int width;
+        int height;
+        int redBits;
+        int blueBits;
+        int greenBits;
+    }
 
-/* Gamma ramp */
-struct GLFWgammaramp
-{
-    ushort red[GLFW_GAMMA_RAMP_SIZE];
-    ushort green[GLFW_GAMMA_RAMP_SIZE];
-    ushort blue[GLFW_GAMMA_RAMP_SIZE];
-}
+    /* Gamma ramp */
+    struct GLFWgammaramp
+    {
+        ushort red[GLFW_GAMMA_RAMP_SIZE];
+        ushort green[GLFW_GAMMA_RAMP_SIZE];
+        ushort blue[GLFW_GAMMA_RAMP_SIZE];
+    }
 
 
-/*************************************************************************
- * Prototypes
- *************************************************************************/
+    /*************************************************************************
+    * Prototypes
+    *************************************************************************/
 
-extern(C) {
     /* Initialization, termination and version querying */
     int  glfwInit();
     void glfwTerminate();
