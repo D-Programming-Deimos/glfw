@@ -416,7 +416,7 @@ extern (C) {
     void glfwSetWindowCloseCallback(GLFWwindow window, GLFWwindowclosefun cbfun);
     void glfwSetWindowRefreshCallback(GLFWwindow window, GLFWwindowrefreshfun cbfun);
     void glfwSetWindowFocusCallback(GLFWwindow window, GLFWwindowfocusfun cbfun);
-    void glfwSetWindowIconifyCallback(GLFWwindow window, iconifyfun cbfun);
+    void glfwSetWindowIconifyCallback(GLFWwindow window, GLFWwindowiconifyfun cbfun);
 
     /* Event handling */
     void glfwPollEvents();
