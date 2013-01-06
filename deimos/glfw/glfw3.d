@@ -412,11 +412,11 @@ extern (C) {
     void glfwSetWindowUserPointer(GLFWwindow window, void* pointer);
     void* glfwGetWindowUserPointer(GLFWwindow window);
     void glfwSetWindowPosCallback(GLFWwindow window, GLFWwindowposfun cbfun);
-    void glfwSetWindowSizeCallback(GLFWwindowsizefun cbfun);
-    void glfwSetWindowCloseCallback(GLFWwindowclosefun cbfun);
-    void glfwSetWindowRefreshCallback(GLFWwindowrefreshfun cbfun);
-    void glfwSetWindowFocusCallback(GLFWwindowfocusfun cbfun);
-    void glfwSetWindowIconifyCallback(GLFWwindowiconifyfun cbfun);
+    void glfwSetWindowSizeCallback(GLFWwindow window, GLFWwindowsizefun cbfun);
+    void glfwSetWindowCloseCallback(GLFWwindow window, GLFWwindowclosefun cbfun);
+    void glfwSetWindowRefreshCallback(GLFWwindow window, GLFWwindowrefreshfun cbfun);
+    void glfwSetWindowFocusCallback(GLFWwindow window, GLFWwindowfocusfun cbfun);
+    void glfwSetWindowIconifyCallback(GLFWwindow, iconifyfun cbfun);
 
     /* Event handling */
     void glfwPollEvents();
