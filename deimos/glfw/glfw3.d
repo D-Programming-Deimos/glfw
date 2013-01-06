@@ -377,6 +377,8 @@ extern (C) {
     void glfwGetVersion(int* major, int* minor, int* rev);
     const(char)* glfwGetVersionString();
 
+    void glfwSetErrorCallback(GLFWerrorfun cbfun);
+
     const(GLFWmonitor)* glfwGetMonitors(int* count);
     GLFWmonitor glfwGetPrimaryMonitor();
     int glfwGetMonitorParam(GLFWmonitor monitor, int param);
