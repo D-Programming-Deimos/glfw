@@ -416,7 +416,7 @@ extern (C) {
     void glfwSetWindowCloseCallback(GLFWwindow window, GLFWwindowclosefun cbfun);
     void glfwSetWindowRefreshCallback(GLFWwindow window, GLFWwindowrefreshfun cbfun);
     void glfwSetWindowFocusCallback(GLFWwindow window, GLFWwindowfocusfun cbfun);
-    void glfwSetWindowIconifyCallback(GLFWwindow, iconifyfun cbfun);
+    void glfwSetWindowIconifyCallback(GLFWwindow window, iconifyfun cbfun);
 
     /* Event handling */
     void glfwPollEvents();
@@ -430,12 +430,12 @@ extern (C) {
     void glfwGetCursorPos(GLFWwindow window, int* xpos, int* ypos);
     void glfwSetCursorPos(GLFWwindow window, int xpos, int ypos);
     void glfwGetScrollOffset(GLFWwindow window, double* xoffset, double* yoffset);
-    void glfwSetKeyCallback(GLFWkeyfun cbfun);
-    void glfwSetCharCallback(GLFWcharfun cbfun);
-    void glfwSetMouseButtonCallback(GLFWmousebuttonfun cbfun);
-    void glfwSetCursorPosCallback(GLFWcursorposfun cbfun);
-    void glfwSetCursorEnterCallback(GLFWcursorenterfun cbfun);
-    void glfwSetScrollCallback(GLFWscrollfun cbfun);
+    void glfwSetKeyCallback(GLFWwindow window, GLFWkeyfun cbfun);
+    void glfwSetCharCallback(GLFWwindow window, GLFWcharfun cbfun);
+    void glfwSetMouseButtonCallback(GLFWwindow window, GLFWmousebuttonfun cbfun);
+    void glfwSetCursorPosCallback(GLFWwindow window, GLFWcursorposfun cbfun);
+    void glfwSetCursorEnterCallback(GLFWwindow window, GLFWcursorenterfun cbfun);
+    void glfwSetScrollCallback(GLFWwindow window, GLFWscrollfun cbfun);
 
     /* Joystick input */
     int glfwGetJoystickParam(int joy, int param);
