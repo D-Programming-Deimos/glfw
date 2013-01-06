@@ -396,7 +396,7 @@ extern (C) {
     /* Window handling */
     void glfwDefaultWindowHints();
     void glfwWindowHint(int target, int hint);
-    GLFWwindow glfwCreateWindow(int width, int height, int mode, const(char)* title, GLFWwindow share);
+    GLFWwindow glfwCreateWindow(int width, int height, const(char)* title, GLFWmonitor monitor, GLFWwindow share);
     void glfwDestroyWindow(GLFWwindow window);
     void glfwSetWindowTitle(GLFWwindow window, const(char)* title);
     void glfwGetWindowSize(GLFWwindow window, int* width, int* height);
