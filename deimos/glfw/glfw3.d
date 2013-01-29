@@ -329,24 +329,24 @@ extern (C) {
     alias void function() GLFWglproc;
 
     /* Window handle type */
-    alias void* GLFWwindow;
-    alias void* GLFWmonitor;
+    struct GLFWwindow {};
+    struct GLFWmonitor {};
 
     /* Function pointer types */
     alias void function(int,const(char)*) GLFWerrorfun;
-    alias void function(GLFWwindow,int,int) GLFWwindowposfun;
-    alias void function(GLFWwindow,int,int) GLFWwindowsizefun;
-    alias int  function(GLFWwindow) GLFWwindowclosefun;
-    alias void function(GLFWwindow) GLFWwindowrefreshfun;
-    alias void function(GLFWwindow,int) GLFWwindowfocusfun;
-    alias void function(GLFWwindow,int) GLFWwindowiconifyfun;
-    alias void function(GLFWwindow,int,int) GLFWmousebuttonfun;
-    alias void function(GLFWwindow,int,int) GLFWcursorposfun;
-    alias void function(GLFWwindow,int) GLFWcursorenterfun;
-    alias void function(GLFWwindow,double,double) GLFWscrollfun;
-    alias void function(GLFWwindow,int,int) GLFWkeyfun;
-    alias void function(GLFWwindow,int) GLFWcharfun;
-    alias void function(GLFWmonitor,int) GLFWmonitorfun;
+    alias void function(GLFWwindow*,int,int) GLFWwindowposfun;
+    alias void function(GLFWwindow*,int,int) GLFWwindowsizefun;
+    alias int  function(GLFWwindow*) GLFWwindowclosefun;
+    alias void function(GLFWwindow*) GLFWwindowrefreshfun;
+    alias void function(GLFWwindow*,int) GLFWwindowfocusfun;
+    alias void function(GLFWwindow*,int) GLFWwindowiconifyfun;
+    alias void function(GLFWwindow*,int,int) GLFWmousebuttonfun;
+    alias void function(GLFWwindow*,int,int) GLFWcursorposfun;
+    alias void function(GLFWwindow*,int) GLFWcursorenterfun;
+    alias void function(GLFWwindow*,double,double) GLFWscrollfun;
+    alias void function(GLFWwindow*,int,int) GLFWkeyfun;
+    alias void function(GLFWwindow*,int) GLFWcharfun;
+    alias void function(GLFWmonitor*,int) GLFWmonitorfun;
 
     /* The video mode structure used by glfwGetVideoModes */
     struct GLFWvidmode
@@ -379,14 +379,14 @@ extern (C) {
 
     void glfwSetErrorCallback(GLFWerrorfun cbfun);
 
-    const(GLFWmonitor)* glfwGetMonitors(int* count);
+    const(GLFWmonitor*)* glfwGetMonitors(int* count);
     GLFWmonitor glfwGetPrimaryMonitor();
-    int glfwGetMonitorParam(GLFWmonitor monitor, int param);
-    const(char)* glfwGetMonitorName(GLFWmonitor monitor);
+    int glfwGetMonitorParam(GLFWmonitor* monitor, int param);
+    const(char)* glfwGetMonitorName(GLFWmonitor* monitor);
 
-    void glfwSetMonitorCallback(GLFWmonitorfun cbfun);
-    const(GLFWvidmode)* glfwGetVideoModes(GLFWmonitor monitor, int* count);
-    void glfwGetVideoMode(GLFWmonitor monitor, GLFWvidmode* mode);
+    void glfwSetMonitorCallback(GLFWmonitor*fun cbfun);
+    const(GLFWvidmode)* glfwGetVideoModes(GLFWmonitor* monitor, int* count);
+    void glfwGetVideoMode(GLFWmonitor* monitor, GLFWvidmode* mode);
 
     /* Gamma ramp functions */
     void glfwSetGamma(float gamma);
@@ -397,45 +397,45 @@ extern (C) {
     void glfwDefaultWindowHints();
     void glfwWindowHint(int target, int hint);
     GLFWwindow glfwCreateWindow(int width, int height, const(char)* title, GLFWmonitor monitor, GLFWwindow share);
-    void glfwDestroyWindow(GLFWwindow window);
-    void glfwSetWindowTitle(GLFWwindow window, const(char)* title);
-    void glfwGetWindowSize(GLFWwindow window, int* width, int* height);
-    void glfwSetWindowSize(GLFWwindow window, int width, int height);
-    void glfwGetWindowPos(GLFWwindow window, int* xpos, int* ypos);
-    void glfwSetWindowPos(GLFWwindow window, int xpos, int ypos);
-    void glfwIconifyWindow(GLFWwindow window);
-    void glfwRestoreWindow(GLFWwindow window);
-    void glfwShowWindow(GLFWwindow window);
-    void glfwHideWindow(GLFWwindow window);
-    GLFWmonitor glfwGetWindowMonitor(GLFWwindow window);
-    int  glfwGetWindowParam(GLFWwindow window, int param);
-    void glfwSetWindowUserPointer(GLFWwindow window, void* pointer);
-    void* glfwGetWindowUserPointer(GLFWwindow window);
-    void glfwSetWindowPosCallback(GLFWwindow window, GLFWwindowposfun cbfun);
-    void glfwSetWindowSizeCallback(GLFWwindow window, GLFWwindowsizefun cbfun);
-    void glfwSetWindowCloseCallback(GLFWwindow window, GLFWwindowclosefun cbfun);
-    void glfwSetWindowRefreshCallback(GLFWwindow window, GLFWwindowrefreshfun cbfun);
-    void glfwSetWindowFocusCallback(GLFWwindow window, GLFWwindowfocusfun cbfun);
-    void glfwSetWindowIconifyCallback(GLFWwindow window, GLFWwindowiconifyfun cbfun);
+    void glfwDestroyWindow(GLFWwindow* window);
+    void glfwSetWindowTitle(GLFWwindow* window, const(char)* title);
+    void glfwGetWindowSize(GLFWwindow* window, int* width, int* height);
+    void glfwSetWindowSize(GLFWwindow* window, int width, int height);
+    void glfwGetWindowPos(GLFWwindow* window, int* xpos, int* ypos);
+    void glfwSetWindowPos(GLFWwindow* window, int xpos, int ypos);
+    void glfwIconifyWindow(GLFWwindow* window);
+    void glfwRestoreWindow(GLFWwindow* window);
+    void glfwShowWindow(GLFWwindow* window);
+    void glfwHideWindow(GLFWwindow* window);
+    GLFWmonitor glfwGetWindowMonitor(GLFWwindow* window);
+    int  glfwGetWindowParam(GLFWwindow* window, int param);
+    void glfwSetWindowUserPointer(GLFWwindow* window, void* pointer);
+    void* glfwGetWindowUserPointer(GLFWwindow* window);
+    void glfwSetWindowPosCallback(GLFWwindow* window, GLFWwindowposfun cbfun);
+    void glfwSetWindowSizeCallback(GLFWwindow* window, GLFWwindowsizefun cbfun);
+    void glfwSetWindowCloseCallback(GLFWwindow* window, GLFWwindowclosefun cbfun);
+    void glfwSetWindowRefreshCallback(GLFWwindow* window, GLFWwindowrefreshfun cbfun);
+    void glfwSetWindowFocusCallback(GLFWwindow* window, GLFWwindowfocusfun cbfun);
+    void glfwSetWindowIconifyCallback(GLFWwindow* window, GLFWwindowiconifyfun cbfun);
 
     /* Event handling */
     void glfwPollEvents();
     void glfwWaitEvents();
 
     /* Input handling */
-    int  glfwGetInputMode(GLFWwindow window, int mode);
-    void glfwSetInputMode(GLFWwindow window, int mode, int value);
-    int  glfwGetKey(GLFWwindow window, int key);
-    int  glfwGetMouseButton(GLFWwindow window, int button);
-    void glfwGetCursorPos(GLFWwindow window, int* xpos, int* ypos);
-    void glfwSetCursorPos(GLFWwindow window, int xpos, int ypos);
-    void glfwGetScrollOffset(GLFWwindow window, double* xoffset, double* yoffset);
-    void glfwSetKeyCallback(GLFWwindow window, GLFWkeyfun cbfun);
-    void glfwSetCharCallback(GLFWwindow window, GLFWcharfun cbfun);
-    void glfwSetMouseButtonCallback(GLFWwindow window, GLFWmousebuttonfun cbfun);
-    void glfwSetCursorPosCallback(GLFWwindow window, GLFWcursorposfun cbfun);
-    void glfwSetCursorEnterCallback(GLFWwindow window, GLFWcursorenterfun cbfun);
-    void glfwSetScrollCallback(GLFWwindow window, GLFWscrollfun cbfun);
+    int  glfwGetInputMode(GLFWwindow* window, int mode);
+    void glfwSetInputMode(GLFWwindow* window, int mode, int value);
+    int  glfwGetKey(GLFWwindow* window, int key);
+    int  glfwGetMouseButton(GLFWwindow* window, int button);
+    void glfwGetCursorPos(GLFWwindow* window, int* xpos, int* ypos);
+    void glfwSetCursorPos(GLFWwindow* window, int xpos, int ypos);
+    void glfwGetScrollOffset(GLFWwindow* window, double* xoffset, double* yoffset);
+    void glfwSetKeyCallback(GLFWwindow* window, GLFWkeyfun cbfun);
+    void glfwSetCharCallback(GLFWwindow* window, GLFWcharfun cbfun);
+    void glfwSetMouseButtonCallback(GLFWwindow* window, GLFWmousebuttonfun cbfun);
+    void glfwSetCursorPosCallback(GLFWwindow* window, GLFWcursorposfun cbfun);
+    void glfwSetCursorEnterCallback(GLFWwindow* window, GLFWcursorenterfun cbfun);
+    void glfwSetScrollCallback(GLFWwindow* window, GLFWscrollfun cbfun);
 
     /* Joystick input */
     int glfwGetJoystickParam(int joy, int param);
@@ -443,17 +443,17 @@ extern (C) {
     int glfwGetJoystickButtons(int joy, ubyte* buttons, int numbuttons);
 
     /* Clipboard */
-    void glfwSetClipboardString(GLFWwindow window, const(char)* string);
-    const(char)* glfwGetClipboardString(GLFWwindow window);
+    void glfwSetClipboardString(GLFWwindow* window, const(char)* string);
+    const(char)* glfwGetClipboardString(GLFWwindow* window);
 
     /* Time */
     double glfwGetTime();
     void   glfwSetTime(double time);
 
     /* OpenGL support */
-    void glfwMakeContextCurrent(GLFWwindow window);
+    void glfwMakeContextCurrent(GLFWwindow* window);
     GLFWwindow glfwGetCurrentContext();
-    void  glfwSwapBuffers(GLFWwindow window);
+    void  glfwSwapBuffers(GLFWwindow* window);
     void  glfwSwapInterval(int interval);
     int   glfwExtensionSupported(const(char)* extension);
     GLFWglproc glfwGetProcAddress(const(char)* procname);
