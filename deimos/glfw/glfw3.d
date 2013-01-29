@@ -384,7 +384,7 @@ extern (C) {
     int glfwGetMonitorParam(GLFWmonitor* monitor, int param);
     const(char)* glfwGetMonitorName(GLFWmonitor* monitor);
 
-    void glfwSetMonitorCallback(GLFWmonitor*fun cbfun);
+    void glfwSetMonitorCallback(GLFWmonitorfun cbfun);
     const(GLFWvidmode)* glfwGetVideoModes(GLFWmonitor* monitor, int* count);
     void glfwGetVideoMode(GLFWmonitor* monitor, GLFWvidmode* mode);
 
