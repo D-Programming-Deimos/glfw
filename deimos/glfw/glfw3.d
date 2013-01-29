@@ -380,7 +380,7 @@ extern (C) {
     void glfwSetErrorCallback(GLFWerrorfun cbfun);
 
     const(GLFWmonitor*)* glfwGetMonitors(int* count);
-    GLFWmonitor glfwGetPrimaryMonitor();
+    GLFWmonitor* glfwGetPrimaryMonitor();
     int glfwGetMonitorParam(GLFWmonitor* monitor, int param);
     const(char)* glfwGetMonitorName(GLFWmonitor* monitor);
 
@@ -396,7 +396,7 @@ extern (C) {
     /* Window handling */
     void glfwDefaultWindowHints();
     void glfwWindowHint(int target, int hint);
-    GLFWwindow glfwCreateWindow(int width, int height, const(char)* title, GLFWmonitor monitor, GLFWwindow share);
+    GLFWwindow* glfwCreateWindow(int width, int height, const(char)* title, GLFWmonitor* monitor, GLFWwindow* share);
     void glfwDestroyWindow(GLFWwindow* window);
     void glfwSetWindowTitle(GLFWwindow* window, const(char)* title);
     void glfwGetWindowSize(GLFWwindow* window, int* width, int* height);
@@ -407,7 +407,7 @@ extern (C) {
     void glfwRestoreWindow(GLFWwindow* window);
     void glfwShowWindow(GLFWwindow* window);
     void glfwHideWindow(GLFWwindow* window);
-    GLFWmonitor glfwGetWindowMonitor(GLFWwindow* window);
+    GLFWmonitor* glfwGetWindowMonitor(GLFWwindow* window);
     int  glfwGetWindowParam(GLFWwindow* window, int param);
     void glfwSetWindowUserPointer(GLFWwindow* window, void* pointer);
     void* glfwGetWindowUserPointer(GLFWwindow* window);
@@ -452,7 +452,7 @@ extern (C) {
 
     /* OpenGL support */
     void glfwMakeContextCurrent(GLFWwindow* window);
-    GLFWwindow glfwGetCurrentContext();
+    GLFWwindow* glfwGetCurrentContext();
     void  glfwSwapBuffers(GLFWwindow* window);
     void  glfwSwapInterval(int interval);
     int   glfwExtensionSupported(const(char)* extension);
