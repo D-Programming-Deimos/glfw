@@ -1,18 +1,17 @@
-# quick and dirty makefile to build the example
-# I admit I don't know much about makefiles
-# so if you can improve upon this by all means
-# please do so; I can use the help :)
+# to compile type make all
+# to clean type make clean
 
-P:=glfw2_openwindow
-DC:=dmd
-SRCS:=openwindow.d
-INCLUDES:=../../../
+OUT=glfw2_openwindow
+DC=dmd
+SRCS=openwindow.d
+INCLUDES=-I../../../
 # point this to wherever libglfw.so is ...
-LIBS:=`pkg-config --libs libglfw`
+LIBS=-L`pkg-config --libs libglfw`
+CLEAN=glfw2_openwindow.o glfw2_openwindow
 
-$(P): $(SRC)
-	$(DC) -of$(P) -I$(INCLUDES) -L$(LIBS) $(SRCS)
+all: ${SRCS}
+	${DC} -of${OUT} ${INCLUDES} ${LIBS} $^
 
-clean:
-	-rm -f glfw2_openwindow.o glfw2_openwindow
+clean: ${CLEAN}
+	-rm -f $^
 .PHONY: clean
